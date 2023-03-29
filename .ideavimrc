@@ -1,4 +1,4 @@
-" vim settings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" =========== vim settings ===========
 set scrolloff=5
 set incsearch
 set hlsearch
@@ -13,11 +13,11 @@ set clipboard=ideaput
 set ideamarks
 set ideajoin
 
-" set ideastatusico=gray
 
-" plugins  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" ========== plugins ===========
 Plug 'https://www.vim.org/scripts/script.php?script_id=1697'
 Plug 'machakann/vim-highlightedyank'
+Plug 'preservim/nerdtree'
 
 " nerdtree
 " Plug 'preservim/nerdtree`
@@ -30,7 +30,6 @@ Plug 'machakann/vim-highlightedyank'
 " :NERDTreeRefreshRoot
 
 "Plug 'https://github.com/preservim/nerdtree'
-Plug 'preservim/nerdtree'
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <leader>t :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -48,28 +47,26 @@ set which-key
 set notimeout
 set timeoutlen=1000
 
-" vim keybindings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" =========== vim keybindings ===========
 let mapleader=" "
 
-" normal mode
-nmap H ^
-nmap L $
+"=========== normal mode ===========
+nnoremap H ^
+nnoremap L $
 nnoremap <C-a> ggVG
 
-
-
-" insert mode
+" =========== insert mode ==========
 inoremap jj <ESC>
-" inoremap ; :
-" inoremap : ;
 
-" vnoremap <C-c> "+y
+" =========== visual mode ===========
+vnoremap H ^
+vnoremap L $
 
-" map action ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" =========== map action ===========
 map gc <action>(CommentByLineComment)
 map gcc <action>(CommentByBlockComment)
 
-" go to
+" move
 map <leader>c <action>(GotoClass)
 map <leader>f <action>(GotoFile)
 map <leader>a <action>(GotoAction)
@@ -78,26 +75,22 @@ map <leader>i <action>(GotoImplementation)
 map <leader><C-i> <action>(ImplementMethods)
 map <leader><C-o> <action>(OverrideMethods)
 
-
-" close window
-map <leader>q <action>(CloseContent)
-map <leader>w <action>(SaveAll)
-" show parameter info
+map <leader>w <action>(CloseContent)
+map <leader>s <action>(SaveAll)
 map <leader>p <action>(ParameterInfo)
-
-" map <leader>j <action>(InsertLiveTemplate)
-map <leader><J> <action>(SurroundWithLiveTemplate)
-" map <leader>v <action>($Paste)
-
+map <leader><j> <action>(SurroundWithLiveTemplate)
 map <C-p> <action>(ParameterInfo)
 map <C-h> <action>(TypeHierarchy)
+map gq <action>(ReformatCode)
+map gqq <action>(ShowReformatFileDialog)
 
-"map gq <action>(ReformatCode)
-"map gQ <action>(ShowReformatFileDialog)
-
-" set handler ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" ========== set handler ==========
 sethandler <C-c> v:ide
 sethandler <C-v> i:ide
 sethandler <C-x> v:ide
 sethandler <C-j> i:ide
 sethandler <C-e> n:ide
+
+
+
+
