@@ -4,7 +4,7 @@ set incsearch
 set hlsearch
 
 set number
-set rnu
+" set rnu
 
 set ignorecase
 set smartcase
@@ -36,12 +36,12 @@ set keep-english-in-normal-and-restore-in-insert
 set notimeout
 set timeoutlen=1000
 
-
 " :NERDTree
 " :NERDTreeClose
 " :NERDTreeFind
 " :NERDTreeRefreshRoot
 " :NERDTreeFind<CR>
+" :NERDTreeToggle<CR>
 
 
 " =========== vim keybindings ===========
@@ -55,7 +55,7 @@ let mapleader=" "
 "nmap ga :action GotoAction<cr>
 
 nmap gh :action ShowErrorDescription<cr>
-nmap gq :action ReformatCode<cr>
+nmap gq :action ReformatCode<CR>
 nmap gQ :action ShowReformatFileDialog<cr>
 nmap <leader>p :action ParameterInfo<cr>
 
@@ -64,10 +64,12 @@ noremap L $
 nnoremap Y y$
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <leader>t :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
 
 " =========== insert mode ==========
 inoremap jj <ESC>
+inoremap <c-i> :action ImplementMethods<cr>
+inoremap <c-o> :action OverrideMethods<cr>
+inoremap <c-j> :action SurroundWithLiveTemplate<cr>
 
 " =========== visual mode ===========
 
@@ -75,6 +77,8 @@ inoremap jj <ESC>
 
 "map gc <action>(CommentByLineComment)
 "map gC <action>(CommentByBlockComment)
+map <leader>i <action>(GotoImplementation)
+map <leader>b <action>(GotoDeclaration)
 
 map <leader>q <action>(CloseContent)
 map <leader>w <action>(SaveAll)
@@ -84,18 +88,13 @@ map <leader>f <action>(GotoFile)
 map <leader>a <action>(GotoAction)
 map <leader>s <action>(GotoSymbol)
 
-map <leader>i <action>(GotoImplementation)
-map <leader>b <action>(GotoDeclaration)
-map <leader><c-j> <action>(SurroundWithLiveTemplate)
-map <leader><c-i> <action>(ImplementMethods)
-map <leader><c-o> <action>(OverrideMethods)
-
 map <leader>h <action>(TypeHierarchy)
 
 " ========== set handler ==========
 sethandler <c-c> v:ide
 sethandler <c-v> i:ide
 sethandler <c-x> v:ide
+
 sethandler <c-j> i:ide
 sethandler <c-p> i:ide
 sethandler <c-e> n:ide
