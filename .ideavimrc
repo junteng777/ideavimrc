@@ -2,10 +2,8 @@
 set scrolloff=5
 set incsearch
 set hlsearch
-
 set number
 " set rnu
-
 set ignorecase
 set smartcase
 set visualbell
@@ -62,14 +60,16 @@ nmap <leader>p :action ParameterInfo<cr>
 noremap H ^
 noremap L $
 nnoremap Y y$
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <leader>t :NERDTree<CR>
+nnoremap <leader>n :NERDTreeFocus<cr>
+nnoremap <leader>t :NERDTree<cr>
+nnoremap <leader>r :RenameElement<cr>
 
 " =========== insert mode ==========
 inoremap jj <ESC>
 inoremap <c-i> :action ImplementMethods<cr>
 inoremap <c-o> :action OverrideMethods<cr>
 inoremap <c-j> :action SurroundWithLiveTemplate<cr>
+inoremap <c-p> :action ParameterInfo<cr>
 
 " =========== visual mode ===========
 
@@ -96,10 +96,6 @@ sethandler <c-v> i:ide
 sethandler <c-x> v:ide
 
 sethandler <c-j> i:ide
-sethandler <c-p> i:ide
+"sethandler <c-p> i:ide
 sethandler <c-e> n:ide
 sethandler <c-a> n:ide
-
-
-
-
